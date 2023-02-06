@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet2</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        div{
+            width: 100%;
+            height: 200px;
+            font-size: 25px;
+            background-color: crimson;
+        }
+        .top {
+            color: white;
+            font-size: 30px;
+            padding: 0 20px;
+        }
+        .parent{
+            display: flex;
+            height: 350px;
+            padding: 0 10px;
+        }
+        .child{
+            background-color: white;
+            height: 350px;
+            padding: 0;
+        }
+        .c1{
+            width: 80%;
+            font-size: 18px;
+            padding: auto;
+        }
+        .c1 > h1{
+            color: crimson;
+            display: flex;
+            align-items: flex-start;
+        }
+        .c2{
+            display: flex;
+            width: 20%;
+            flex-direction: column;
+            justify-content: space-evenly;
+            font-size: 30px;
+        }
+        .c3{
+            padding: 0 10px;
+            background-color: rgb(240, 183, 183);
+            font-size: 20px;
+            color: crimson;
+        }
+        .middle{
+            display: flex;
+            height: 200px;
+            padding: 0 10px 0;
+        }       
+        .bottom{
+            height: 150px;  
+            color: white;
+            font-size: 15px;
+            padding: 30px 0;
+            
+        }
+        button{
+            width: 80%;
+            background-color: crimson;
+            border-radius: 15px;
+            height: 30px;
+            border-color: crimson;    
+        }
+    </style>
+</head>
+<body>
+     <div class="top">
+         <h1>Welcome To My Homepage</h1>
+        Use the menu to select different Stylesheets
+    </div>
+        <div class="parent">
+            <div class="child c1">
+                <h1>Same Page Different Stylesheets</h1>
+                <P>This is a demonstration of how different stylesheets can change the layout of your HTML page.
+                    You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:</P>
+                Stylesheet1, Stylesheet2, Stylesheet3, Stylesheet4.
+                <h1>No Styles</h1>
+                <p>
+                    This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+                </p>
+                No Stylesheet.
+            </div>
+            <div class="child c2">
+                <button>Stylesheet1</button>
+                <button>Stylesheet2</button>
+                <button>Stylesheet3</button>
+                <button>Stylesheet4</button>
+                <button>No Stylesheet</button>
+            </div>
+    </div>
+    <div class="middle">
+        <div class="c3">
+            <h2>Side-Bar</h2>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+        </div>
+    </div>
+    <div class="bottom"><center>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+    </center>
+    </div>
+</body>
+</html>

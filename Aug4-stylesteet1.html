@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet1</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        div{
+            padding: 15px;
+        }
+        .top h1{
+            margin:auto;
+            border-radius: 5px;
+        }
+        .top h3{
+           padding: 2px;
+            margin:auto;
+        }
+
+
+        .parent{
+            display: flex;
+
+        }
+        .child{
+            height: 350px;
+        }
+        .c1{
+            width: 20%;
+        }
+        .c2{
+            width: 60%;
+        }
+        .c2 > h1{
+            margin: 10px 0;
+        }
+        .c2 p{
+            font-size: 20px;
+        }
+        .c3{
+            color: white;
+            justify-content: flex-end;
+            width: 20%;
+            border-radius: 15px;
+        }
+        .c3 p{
+            font-size: 20px;
+        }
+        .bottom{
+            border-radius: 5px;
+            background-color: rgb(148, 144, 144);
+        }
+
+        button{
+            width: 100%;
+            background-color: rgb(194, 192, 192);
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="top" style="color: white ; background-color: rgb(10, 99, 10);">
+        <h1>Welcome to my Homepage</h1>
+        <h3>Use the menue to select different stylesheet</h3>
+    
+    </div>
+    <div class="parent">
+        <div class="child c1" style="background-color: white;">
+            <button><link rel="stylesheet" href="Stylesheet1.css">Stylesheet1</button>
+            <button><link rel="stylesheet" href="Stylesheet2.css">Stylesheet2</button>
+            <button><link rel="stylesheet" href="Stylesheet3.css">Stylesheet3</button>
+            <button><link rel="stylesheet" href="Stylesheet4.css">Stylesheet4</button>
+            <button><link rel="stylesheet" href="NoStylesheet.css">No Stylesheet</button>
+            
+        </div>
+        <div class="child c2" style="background-color: white;">
+            <h1>Same Page Different Stylesheets</h1>
+            <p>
+            This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+            <br><u>Stylesheet1</u>, <u>Stylesheet2</u>, <u>Stylesheet3</u>, <u>Stylesheet4</u>.</p>
+
+            
+            <h1>No Styles<br></h1><p>
+            This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+            <br><u>No Stylesheet</u>.</p>
+        </div>
+        <div class="child c3" style="background-color: rgb(59, 131, 199);">
+            <h1>Side-Bar</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            </p>
+        </div>
+    </div>
+    <div class="bottom">
+        <center>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto explicabo, perferendis deleniti eaque corporis ex, dolore id blanditiis accusantium unde pariatur, debitis cum numquam sunt dolorum libero animi ipsum quas fuga provident ipsam et eveniet vitae quos. Quae, porro sunt?</center>
+    </div>
+
+</body>
+</html>

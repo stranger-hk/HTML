@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var body=document.querySelector("body");
+        var table= document.createElement("table");
+
+        table.setAttribute("border","1");
+        table.setAttribute("cellpadding","10");
+        table.setAttribute("cellspacing","0");
+        
+        var tr= document.createElement("tr");
+        var th1= document.createElement("th");
+        var th2= document.createElement("th");
+        var th3= document.createElement("th");
+        var th4= document.createElement("th");
+        var th5= document.createElement("th");
+        var th6= document.createElement("th");
+        var th7= document.createElement("th");
+        
+        th1.textContent = "Name"
+        th2.textContent = "English"
+        th3.textContent = "Nepali"
+        th4.textContent = "Maths"
+        th5.textContent = "Physics"
+        th6.textContent = "Chemistry"
+        th7.textContent = "Computer"
+
+        tr.appendChild(th1);
+        tr.appendChild(th2);
+        tr.appendChild(th3);
+        tr.appendChild(th4);
+        tr.appendChild(th5);
+        tr.appendChild(th6);
+        tr.appendChild(th7);
+        table.appendChild(tr);
+        body.appendChild(table);
+    </script>
+</body>
+</html>

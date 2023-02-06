@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylesheet 4</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            background-color: black;
+            padding: 0 10px;
+        }
+        .top{
+            color: rgb(36, 139, 36);
+            font-size: 20px;
+        }
+        .top > h1{
+            font-size: 40px;
+        }
+        .parent{
+            display: flex;
+            color: rgb(36, 139, 36);
+        }
+        .c1{
+            width: 70%;
+        }
+        .c2{
+            width: 30%;
+            color: white;
+            border: solid white;
+        }
+        .middle{
+            color: rgb(36, 139, 36);
+            font-size: 20px;
+        }
+        .middle > u{
+            color: white;
+        }
+        .bottom{
+            color: white;
+            font-size: 15px;
+            border: solid white;
+            width: 100%;
+        }
+        button{
+            font-size: 20px;
+            color: rgb(36, 139, 36);
+        }
+    </style>
+</head>
+<body>
+    <div class="top"><h1>Welcome to My Homepage</h1>
+        <p>Use the menu to select different Stylesheets</p>
+    </div>
+    <div class="parent">
+        <div class="child c1">
+            <ul>
+                <li><button>Stylesheet 1</button></li>
+                <li><button>Stylesheet 2</button></li>
+                <li><button>Stylesheet 3</button></li>
+                <li><button>Stylesheet 4</button></li>
+                <li><button>No Stylesheet</button></li>
+            </ul>
+        </div>
+        <div class="child c2">
+            <table>
+                <tr>
+                    <td><h1>Side-Bar</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="middle">
+        <h1>Same Page Different Stylesheets</h1>
+        <p>This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+        <br><u style="color: white;">Stylesheet1</u>, <u style="color: white;">Stylesheet2</u>, <u style="color: white;">Stylesheet3</u>, <u style="color: white;">Stylesheet4</u>.</p>
+        <h1>No Styles</h1>
+        <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+        <br><u style="color: white;">No Stylesheet</u>.
+        </p>
+    </div>
+    <div class="bottom">
+        <p><center>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</center></p>
+    </div>
+</body>
+</html>

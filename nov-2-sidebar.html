@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .whole{
+            padding: 30px;
+            display: flex;
+            color: white;
+        }
+        .sdbar{
+            background-color: black;
+            height: 100vh;
+            width: 20%;
+        }
+        .sdbar-active{
+            background-color: red;
+        }
+        .else{
+            background-color: rgb(255, 0, 0);
+            height: 100vh;
+            width: 80%;
+        }
+        button{
+            margin-top: 10px;
+            margin-left: 10px;
+            padding: 20px;
+            font-size: 20px;
+            font-style: italic;
+            border: 5px;
+            border-radius: 40px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="whole">
+    <div class="sdbar">
+        <button>Change color</button>
+    </div>
+    <div class="else"></div>
+    </div>
+    <script src="/Java Script/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        // $("button").on({
+        //     mousedown: function(){
+        //         $(".sdbar").addClass("sdbar-active");
+        //     },
+        //     mouseup: function(){
+        //         $(".sdbar").removeClass("sdbar-active");
+        //     }
+        // });
+
+
+        $("button").click(function(){
+            $(".sdbar").toggleClass("sdbar-active");
+        })
+    </script>
+</body>
+</html>

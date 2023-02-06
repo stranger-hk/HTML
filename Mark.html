@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th{
+            padding: 0 30px;
+            text-size-adjust: 25px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" name="name">
+        <input type="number" name="maths">
+        <input type="number" name="physic">
+        <input type="number" name="english">
+        <input type="number" name="chemistry">
+        <input type="number" name="computer">
+        <input type="submit" name="submit">
+        
+    </form>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Maths</th>
+            <th>Physic</th>
+            <th>English</th>
+            <th>Chemistry</th>
+            <th>Computer</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+            <th>GPA</th>
+        </tr>
+       
+    </table>
+    <script src="Java Script/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        function calculateMarks(){
+            $("tr").each(function(index, value){
+                if(index!=0)
+                {
+                    let td = value.children;
+                    console.log(td)
+                    let total = 0, gpa, percentage, grade, result = true;
+                    console.log("row begin");
+                    for(let i = 0; i < td.length; i++){
+                        if(parseInt(td[i].textContent) < 35){
+                            result = false;
+                        }
+                        if(i>=1 && i<=5){
+                            total = total + parseInt(td[i].textContent);
+                        }
+                        console.dir(td[i].textContent);
+                    }
+                    percentage = total/500 * 100;
+                    if(percentage >= 90){
+                        grade = "A+";
+                    }else if(percentage >= 80){
+                        grade = "A";
+                    }else if(percentage >= 70){
+                        grade = "B+";
+                    }else if(percentage >= 60){
+                        grade = "B";
+                    }else if(percentage >= 50){
+                        grade = "C+";
+                    }else if(percentage >= 40){
+                        grade = "C";
+                    }else if(percentage >= 30){
+                        grade = "D";
+                    }else{
+                        grade = "NG";
+                    }
+                    gpa= total/500*4;
+                    td[6].textContent = total;
+                    if(result){
+                        td[7].textContent = Math.round(percentage);
+                    }else{
+                        td[7].textContent = 0.00;
+                    }
+                    td[8].textContent = grade;
+                    td[9].textContent = gpa;
+    
+                }
+            })
+        }
+            
+
+        $("form").submit(function(e){
+            e.preventDefault();
+            // console.log($(this).children());
+            insertData($(this));
+            calculateMarks();
+            
+        })
+        function insertData(form){
+            let numberofchild = $(this).children().length-1;
+            let tr = document.createElement("tr");
+            form.children().each(function(index, value){
+                if(index != numberofchild){
+                    let td = document.createElement("td");
+                    td.innerText = value.value;
+                    tr.appendChild(td);
+                }
+            });
+            for(let i = 0; i < 3; i++){
+                let td = document.createElement("td");
+                tr.appendChild(td);
+            }
+            document.querySelector("table").appendChild(tr);
+        }
+    </script>
+</body>
+</html>

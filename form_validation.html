@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/fontawesome-free-6.2.0-web/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .isinvalid{
+            border: 1px solid crimson;
+        }
+        .invalid-feedback{
+             color: crimson;
+        }
+        .isvalid{
+            border: 1px solid green;
+        } 
+        .valid-feedback{
+            color: green;
+        }   
+        form{
+            width: 100%;
+            background-color: lightgrey;
+            padding: 20px;
+        }
+        form > label{
+            font-weight: bolder;
+            line-height: 20px;
+        }
+        form > div{
+            width: 100%;
+            margin: 10px 0;
+        }
+        form > div > div > input{
+            padding-left: 30px;
+            width: 100%;
+        }
+        form > div > div > *{
+            padding: 10px;
+        }
+        .ico {
+            position: absolute;
+            cursor: pointer;
+        }
+        i.ico{
+            right: 20px;  
+        }
+        span.invalid{
+            color: crimson;
+        }
+        span.valid{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form action="formsubmitted.html">
+        <div>
+            <label for="">Username</label>
+            <div>
+                <span class="ico fa-solid fa-user"></span>
+                <input type="text" name="username">
+            </div>
+            <div></div>
+        </div>
+
+        <div>
+            <label for="">Email</label>
+            <div>
+                <span class="ico fa-solid fa-envelope"></span>
+                <input type="text" name="email">
+            </div>
+            <div></div>
+        </div>
+
+        <div>
+            <label for="">Password</label>
+            <div>
+                <span class="ico fa-solid fa-lock"></span>
+                <i class="ico fa-solid fa-eye"></i>
+                <input type="password" name="password">
+            </div>
+            <div></div>
+        </div>
+
+        <div>
+            <label for="">Confirm Password</label>
+            <div>
+                <span class="ico fa-solid  fa-lock"></span>
+                <i class="ico fa-solid fa-eye"></i>
+                <input type="password" name="cpassword">
+            </div>
+            <div></div>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+    <!-- <iframe width="320" height="539" src="https://www.youtube.com/embed/cQpeporD4UM" title="Gigachad tutorial #gigachad #sigma #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/GnlMBpalvvI" title="Yuan Jia Nan stuns World Champion Wang Manyu at WTT Champions Macao 2022" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    <script src="../Life computer/HTML/Java Script/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("form").submit(function(e){
+            !checkValidity($("form input")) && e.preventDefault();
+            return;
+        });
+
+        $(".fa-eye").click(function(){
+            $(this).toggleClass("fa-eye-slash");
+            let type = ($(this).next().attr("type") === "text")?"password":"text";
+            $(this).next().attr("type",type);
+            return;
+        });
+
+        function checkValidity(inputfields){
+            let validity = true;
+            inputfields.each(function(){
+                resetMsg($(this));
+                if(isBlank($(this))){
+                    validity = false;
+                    displayMsg(false, $(this), "Please fill the blank field");
+                }else if($(this).attr("name") == "email" && !isEmailValid($(this))){
+                    validity = false;
+                    displayMsg(false, $(this), "Email not valid");
+                }else if($(this).attr("name") == "password" && !isPasswordValid($(this))){
+                    validity = false;
+                    displayMsg(false, $(this), "Minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character");
+                }else if($(this).attr("name") == "cpassword" && !isPasswordsIdentical($(this))){
+                    validity = false;
+                    displayMsg(false, $(this), "Passwords not identical");
+                }else{
+                    displayMsg(true, $(this), "")
+                }
+            })
+            return validity;
+        }
+
+        function resetMsg(inputTag){
+            inputTag.removeClass("isinvalid isvalid");
+            inputTag.siblings("span.ico").removeClass("invalid valid fa-check fa-triangle-exclamation");
+            inputTag.parent().next().removeClass("invalid-feedback valid-feedback");
+            inputTag.parent().next().text("");
+            return;
+        }
+        
+        function displayMsg(validity, inputTag, msg){
+            if(!validity){
+                inputTag.addClass("isinvalid");
+                
+                inputTag.siblings("span.ico").removeClass(function(){
+                    return getLastClass($(this));
+                }).addClass("fa-triangle-exclamation invalid");
+
+                inputTag.parent().next().addClass("invalid-feedback");
+                inputTag.parent().next().text(msg);
+                return;
+            }
+            inputTag.addClass("isvalid");
+            inputTag.siblings("span.ico").removeClass(function(){
+                return getLastClass($(this));
+            }).addClass("fa-check valid");
+            inputTag.parent().next().addClass("valid-feedback");
+            inputTag.parent().next().text("");
+
+            return;
+        }
+
+        function getLastClass(inputTag){
+            let classArr = inputTag.attr("class").split(/\s+/);
+            console.log(classArr[2]);
+            return classArr[2];
+        }
+
+        function isBlank(inputTag){
+            return inputTag.val() == "";
+        }
+        
+        function isEmailValid(inputTag){
+            let emailregex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g;
+            return emailregex.test(inputTag.val());
+        }
+        
+        function isPasswordValid(inputTag){
+            let passwordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/g;
+            return passwordregex.test(inputTag.val());
+        }
+        
+        function isPasswordsIdentical(cpasswordTag){
+            let passwordTag = $("form input[name=password]");
+            return passwordTag.val() == cpasswordTag.val();
+        }
+    </script>
+</body>
+</html>
